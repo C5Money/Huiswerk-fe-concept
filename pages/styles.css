@@ -1,3 +1,21 @@
+/*////////////////////////
+    Table of Contents
+    1. Global Settings
+    2. Layout
+        2.1 Reusables
+    3. Areas
+        3.1 Header
+        3.2 Introduction
+        3.3 Image area
+        3.4 Service area
+        3.5 Form area
+        3.6 Footer
+    4. Media Queries
+////////////////////////*/
+
+
+/* ------------------------------- 1. Global Settings -------------------------------- */
+
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Roboto:wght@100&display=swap');
 
 
@@ -8,15 +26,37 @@
     font-family: 'Roboto', sans-serif;
 }
 
+
+/* ------------------------------- 2. Layout --------------------------------------- */
+/* --------------- 2.1 Reusables ----------------------- */
+
+.outer-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 2px solid yellow;
+}
+
+.inner-container{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 1400px;
+    align-items: center;
+    margin: 0 20px;
+    border: 2px solid red;
+}
+
 h1, h2, h3{
     font-family: 'Merriweather Sans', sans-serif;
 }
 
 a{
     color: var(--main-bgcolor);
+    text-decoration: none;
 }
 
 :root{
+    --gradient-bgcolor: linear-gradient(90deg, rgba(72,69,228,1) 0%, rgba(87,34,205,1) 100%);
     --main-bgcolor: #5722CD;
     --button-bgcolor: #ED4385;
     --project-bgcolor: #F3F6F9;
@@ -26,24 +66,35 @@ a{
     --servicetegel: #7A7A7A;
 }
 
+/* ------------------------------- 3. Areas ---------------------------------------- */
+/* --------------- 3.1 Header ------------------------- */
+
 header{
-    background-color: var(--main-bgcolor);
+    background: linear-gradient(90deg, rgba(72,69,228,1) 0%, rgba(87,34,205,1) 100%);
     color: #FFF;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 50px;
+}
+
+.positie-rel{
+    position: relative;
 }
 
 nav{
-    list-style: none;
     display: flex;
     justify-content: flex-end;
-    gap: 25px;
     width: 100%;
-    padding: 10px 0 50px 0;
+    margin-bottom: 35px;
+}
+
+ul{
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    padding: 5px 0 10px;
     color: var(--ul-etc);
+}
+
+nav li a{
+    color: #FFF;
 }
 
 .header-text{
@@ -54,10 +105,10 @@ nav{
     text-align: center;
     row-gap: 30px;
     max-width: 600px;
-
+    margin-bottom: 150px;
 }
 
-.button-top{
+.top-button{
     background-color: var(--button-bgcolor);
     box-shadow: 2px 2px 8px #0C0C0C;
     color: #FFF;
@@ -70,8 +121,25 @@ nav{
 
 .drawing {
     width: 40px;
-    padding-top: 40px;
+    position: absolute;
+    bottom: 0;
+    left:calc(50% - 20px);
 }
+
+/*.inner-container::before{*/
+/*    width: 0;*/
+/*    height: 0;*/
+/*    border-top: 50px solid black;*/
+/*    border-right: 50px solid transparent;*/
+/*    border-left: 50px solid transparent;*/
+
+/*    !*position: absolute;*!*/
+/*    !*bottom: 0;*!*/
+/*    !*left: 25px;*!*/
+/*    !*!*z-index: -14;*!*!*/
+/*}*/
+
+/* --------------- 3.2 Introduction ------------------- */
 
 main{
     display: flex;
@@ -79,34 +147,33 @@ main{
     align-items: center;
 }
 
-.top-blok{
+.introduction{
     padding: 0 50px;
     color: var(--main-bgcolor);
 }
 
-.top-blok-text{
+.introduction-text{
+    display: flex;
+    flex-direction: column;
     text-align: center;
     max-width: 600px;
-
-    padding: 50px;
+    margin: 50px;
+    border: 2px solid black;
 }
 
-.top-blok-small-text{
+.introduction-small-text{
     display: block;
     font-size: 14px;
     font-weight: bold;
-    margin: 30px 0;
+    padding: 30px 0 0;
     color: var(--stan-text);
 }
 
-.image-area{
+/* --------------- 3.3 Image area ------------------- */
+
+#image-area{
     background-color: var(--project-bgcolor);
     width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px 25px;
 }
 
 .image-article{
@@ -123,12 +190,15 @@ main{
 }
 
 .text-pair{
-    flex-basis: 200px;
+    flex-basis: 50px;
     flex-shrink: 0;
     flex-grow: 1;
     font-size: 14px;
     font-weight: bold;
+    /*min-height: 150px;*/
+    /*column-gap: 50px;*/
     margin: 0 50px;
+    border: 2px solid black;
 }
 
 .text-pair a{
@@ -147,51 +217,62 @@ main{
     flex-shrink: 1;
 }
 
-.service-area{
+/* --------------- 3.4 Service area ------------------- */
+
+#service-area{
+    padding: 50px 0;
+}
+
+.serviceblok{
+
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    width: 100%;
-    padding: 50px;
     flex-wrap: wrap;
     gap: 30px;
+
 }
+
+
 
 .article-blok{
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 10px;
     color: var(--servicetegel);
-    font-size: 14px;
+    font-size: 12px;
     border: 2px solid var(--tekstkleur);
     box-shadow: 2px 5px 15px var(--servicetegel);
-    padding: 20px;
+    gap: 10px;
+    padding: 30px;
     flex-basis: 300px;
     flex-grow: 0;
     flex-shrink: 1;
+
 }
 
 .article-blok img{
     max-width: 50px;
 }
 
-.form-area{
-    background-color: var(--main-bgcolor);
+/* --------------- 3.5 Form area ------------------- */
+
+#form-area{
+    background: linear-gradient(90deg, rgba(72,69,228,1) 0%, rgba(87,34,205,1) 100%);
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 35px 50px;
+    padding: 50px 0;
 }
 
 .text-form-pair{
+    max-width: 600px;
     color: #FFF;
     text-align: center;
+    border: 2px solid greenyellow;
 }
+
 .text-form-pair p{
-    font-size: 14px;
+    font-size: 12px;
     padding: 20px;
 }
 
@@ -202,17 +283,36 @@ form{
     align-content: flex-start;
 }
 
+/* --------------- 3.6 Footer ------------------- */
+
 footer{
     width: 100%;
     background-color: var(--stan-text);
     color: #FFF;
     font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
 }
 
 footer p{
     margin: 5px 0;
 }
+
+/* ------------------------------- 4. Media Queries -------------------------------- */
+/* --------------- 4.1 Header ------------------------- */
+@media screen and (max-width: 585px) {
+    nav{
+        justify-content: space-evenly;
+    }
+}
+
+/* --------------- 4.2 Introduction area ------------------------- */
+/* --------------- 4.3 Image area ------------------------- */
+/* --------------- 4.4 Service area ------------------------- */
+@media screen and (min-width: 1350px){
+    .serviceblok {
+        padding: 0 150px;
+    }
+}
+/* --------------- 4.5 Form area ------------------------- */
+/* --------------- 4.6 Footer ------------------------- */
 
