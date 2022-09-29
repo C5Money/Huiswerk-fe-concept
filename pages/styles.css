@@ -11,6 +11,12 @@
         3.5 Form area
         3.6 Footer
     4. Media Queries
+        4.1 Header
+        4.2 Introduction
+        4.3 Image area
+        4.4 Service area
+        4.5 Form area
+        4.6 Footer
 ////////////////////////*/
 
 
@@ -34,6 +40,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    width: 100vw;
 }
 
 .inner-container{
@@ -41,8 +49,7 @@
     flex-direction: column;
     flex-basis: 1400px;
     align-items: center;
-    margin: 0 20px;
-    border: 2px solid red;
+    margin: 0 50px;
 }
 
 .button{
@@ -54,14 +61,6 @@
     border: none;
     border-radius: 25px;
     padding:10px 20px;
-}
-
-.triangle {
-    border-right: 100vw solid transparent;
-    border-bottom: 50px solid white;
-    position: absolute;
-    left: 0;
-    bottom: 0;
 }
 
 h1, h2, h3{
@@ -130,12 +129,21 @@ nav li a{
     left:calc(50% - 20px);
 }
 
+.triangle {
+    border-right: 100vw solid transparent;
+    border-bottom: 50px solid white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
 /* --------------- 3.2 Introduction ------------------- */
 
 main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100vw;
 }
 
 .introduction{
@@ -145,14 +153,17 @@ main{
 }
 
 .introduction-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
     text-align: center;
     max-width: 600px;
     margin: 50px 0;
-    border: 2px solid black;
 }
 
 .introduction-small-text{
-    display: block;
     font-size: 14px;
     font-weight: bold;
     padding: 50px 0 0;
@@ -163,30 +174,52 @@ main{
 
 #image-area{
     background-color: var(--project-bgcolor);
-    width: 100%;
+    width: 100vw;
+    position: relative;
+}
+
+.middle-driehoek-top{
+    border-left: 100vw solid transparent;
+    border-top: 50px solid white;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.middle-driehoek-bottom{
+    border-right: 100vw solid transparent;
+    border-bottom: 50px solid white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
 
 .image-article{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 25px 0;
+    margin: 75px 0;
     flex-wrap: wrap-reverse;
 }
 
 .image-article:nth-last-child(even){
-    display: flex;
     flex-direction: row-reverse;
 }
 
 .text-pair{
-    flex-basis: 50px;
-    flex-shrink: 0;
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 250px;
+    flex-shrink: 1;
+    flex-grow: 0;
     font-size: 14px;
     font-weight: bold;
-    margin: 50px;
-    border: 2px solid black;
+    margin: 30px;
 }
 
 .text-pair a{
@@ -200,7 +233,7 @@ main{
 }
 
 .img-wrapper{
-    flex-basis: 700px;
+    flex-basis: 600px;
     flex-grow: 0;
     flex-shrink: 1;
 }
@@ -260,11 +293,9 @@ main{
 }
 
 .text-form-pair{
-    /*max-width: 600px;*/
     color: #FFF;
     text-align: center;
     margin: 50px 0;
-    /*border: 2px solid greenyellow;*/
 }
 
 .text-form-pair p{
@@ -273,12 +304,12 @@ main{
 }
 
 form{
-    /*flex-basis: 600px;*/
     display: flex;
-    /*flex-grow: 1;*/
-    flex-direction: column;
-
-    /*align-content: flex-start;*/
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-basis: 600px;
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
 
 label{
@@ -288,24 +319,23 @@ label{
 }
 
 .inputbalk{
-    margin-bottom: 15px;
-    max-width: 600px;
+    margin-bottom: 20px;
+    width:100%;
     border-radius: 3px;
     border-style: none;
+    padding: 10px;
 }
 
 .inputbalk::placeholder{
     font-size: 11px;
-    padding: 10px;
+    font-weight: bold;
 }
 
 .bottom-button{
-    max-width: 100px;
+    flex-basis: 150px;
+    padding: 15px;
     justify-content: center;
 }
-
-
-
 
 /* --------------- 3.6 Footer ------------------- */
 
@@ -314,11 +344,11 @@ footer{
     background-color: var(--stan-text);
     color: #FFF;
     font-size: 14px;
-
 }
 
 footer p{
-    margin: 5px 0;
+    margin: 15px 0;
+    padding: 10px;
 }
 
 /* ------------------------------- 4. Media Queries -------------------------------- */
@@ -340,4 +370,3 @@ footer p{
 
 /* --------------- 4.5 Form area ------------------------- */
 /* --------------- 4.6 Footer ------------------------- */
-
