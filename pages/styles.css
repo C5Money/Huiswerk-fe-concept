@@ -200,7 +200,7 @@ main{
     justify-content: space-between;
     align-items: center;
     margin: 75px 0;
-    flex-wrap: wrap-reverse;
+    flex-wrap: nowrap;
 }
 
 .image-article:nth-last-child(even){
